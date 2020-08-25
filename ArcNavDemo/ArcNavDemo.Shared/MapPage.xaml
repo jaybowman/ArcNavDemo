@@ -21,8 +21,8 @@
 	</ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="ROUTE"    Clicked="ToolbarItem_Clicked"></ToolbarItem>
-        <ToolbarItem Text="START"   Clicked="ToolbarItem_Clicked" ></ToolbarItem>
-        <ToolbarItem Text="AUTO"    Clicked="ToolbarItem_Clicked"></ToolbarItem>      
+        <ToolbarItem Text="START" x:Name="StartBtn"   Clicked="ToolbarItem_Clicked" ></ToolbarItem>
+        <ToolbarItem Text="AUTO"  x:Name="CenterBtn"  Clicked="ToolbarItem_Clicked"></ToolbarItem>      
     </ContentPage.ToolbarItems>
 	<RelativeLayout>
         <esriUI:MapView

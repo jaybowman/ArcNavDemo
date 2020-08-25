@@ -72,11 +72,15 @@ namespace ArcNavDemo
         public MapPage()
         {
             string routeService = App.Current.Resources["RouteServiceProxy"] as string;
+            // use arcgis routing and directions. comment out to use arc7
             _carRoutingUri = new Uri(routeService);
 
             InitializeComponent();
             SetAuthInfo();
-            GetRoute();
+            // GetRoute(); use route button
+
+            CenterBtn.IsEnabled = false;
+            StartBtn.IsEnabled = false;
         }
 
         private void SetAuthInfo()
@@ -154,7 +158,8 @@ namespace ArcNavDemo
                 // Set the map viewpoint to show the entire route.
                 await MyMapView.SetViewpointGeometryAsync(_route.RouteGeometry, 100);
 
-               
+                CenterBtn.IsEnabled = true;
+                StartBtn.IsEnabled = true;
 
             }
             catch (Exception e)
@@ -299,10 +304,9 @@ namespace ArcNavDemo
             var simulationParameters = new SimulationParameters(DateTimeOffset.Now, 40.0);
             var simulatedDataSource = new SimulatedLocationDataSource();
             simulatedDataSource.SetLocationsWithPolyline(_route.RouteGeometry, simulationParameters);
-            //MyMapView.LocationDisplay.DataSource = new RouteTrackerDisplayLocationDataSource(simulatedDataSource, _tracker);
-
+            MyMapView.LocationDisplay.DataSource = new RouteTrackerDisplayLocationDataSource(simulatedDataSource, _tracker);
             // Use this instead if you want real location:
-            MyMapView.LocationDisplay.DataSource = new RouteTrackerDisplayLocationDataSource(new SystemLocationDataSource(), _tracker);
+            //MyMapView.LocationDisplay.DataSource = new RouteTrackerDisplayLocationDataSource(new SystemLocationDataSource(), _tracker);
 
             // Enable the location display (this will start the location data source).
             MyMapView.LocationDisplay.IsEnabled = true;
