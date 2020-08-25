@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:esriUI="clr-namespace:Esri.ArcGISRuntime.Xamarin.Forms;assembly=Esri.ArcGISRuntime.Xamarin.Forms"
+             xmlns:local="clr-namespace:ArcNavDemo.Auth;assembly=ArcNavDemo"
+             x:Class="ArcNavDemo.Auth.OAuthPage">
+    <ContentPage.Resources>
+        <local:OAuthViewModel x:Key="OAuthViewModel" />
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="ToolbarItem_Clicked" Text="Login" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <esriUI:MapView x:Name="MyMapView" 
+                            Map="{Binding Map, Source={StaticResource OAuthViewModel}}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
