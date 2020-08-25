@@ -41,7 +41,7 @@ namespace ArcNavDemo.Auth
         private string _serviceArea = "https://utility.arcgis.com/usrsvcs/appservices/ejTBgNK72EWdNKqp/rest/services/World/ServiceAreas/NAServer/ServiceArea_World/solve";
         private string _clientId = "4LAh8YGROZk34kJR";
         private string _redirectURI = "nav-app://auth";
-        private const string _clientSecret = "60f9b814a86645a0bb4f5c12685ccb31";
+        private const string _clientSecret = "for my eyes only";
 
         // A TaskCompletionSource to store the result of a login task.
         private TaskCompletionSource<Credential> _loginTaskCompletionSrc;
@@ -90,7 +90,7 @@ namespace ArcNavDemo.Auth
             {
                 ServerUri = new Uri(_serverUrl),
                 TokenAuthenticationType = TokenAuthenticationType.ArcGISToken,                
-                OAuthClientInfo = new OAuthClientInfo { ClientId = _clientId, RedirectUri = new Uri(_redirectURI), ClientSecret = _clientSecret }
+                OAuthClientInfo = new OAuthClientInfo { ClientId = _clientId, RedirectUri = new Uri(_redirectURI)}
             };
 
             AuthenticationManager.Current.RegisterServer(serverInfo);

@@ -35,7 +35,7 @@ namespace ArcNavDemo
         // app id
         private string _clientId = "4LAh8YGROZk34kJR";
         private string _redirectURI = "nav-app://auth";
-        private const string _clientSecret = "60f9b814a86645a0bb4f5c12685ccb31";
+        private const string _clientSecret = "for my eyes only";
         private string _serverUrl = "https://www.arcgis.com/sharing/rest";
         private Credential _token;
 
